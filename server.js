@@ -22,11 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/users", userRoutes);
 
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("MONGODB CONNECTED");
   })
