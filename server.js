@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRoutes from "./routes/users.js";
-import path from "path";
 import bodyParser from "body-parser";
 /* App Config */
 
