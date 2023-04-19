@@ -4,14 +4,19 @@ import dotenv from "dotenv";
 import cors from "cors";
 import userRoutes from "./routes/users.js";
 import bodyParser from "body-parser";
+import path from "path";
+
 /* App Config */
+const __dirname = path.resolve();
 
 const app = express();
 const port = process.env.PORT || 80;
+// const buildPath = path.join(__dirname, "build");
+
 dotenv.config();
 
 /* Middleware -> Deals the Connections between database and the App */
-app.use(cors());
+app.options("*", cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +35,11 @@ mongoose
     console.log("err");
   });
 /* Port Listening In */
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(buildPath, "index.html"));
+// });
+
 app.listen(port, () => {
   console.log(`Server is running in PORT ${port}`);
 });
