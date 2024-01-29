@@ -15,7 +15,7 @@ const port = process.env.PORT;
 dotenv.config();
 
 /* Middleware -> Deals the Connections between database and the App */
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
